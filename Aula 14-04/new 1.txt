@@ -1,0 +1,57 @@
+Exercício 03: 
+
+Considere alterar o algoritmo anterior para realizar o primeiro ajuste não crescente para a=(0.5, 0.7, 0.3, 0.9, 0.6, 0.8, 0.1, 0.4, 0.2, 0.5). Quantas caixas foram necessárias utilizando o primeiro ajuste não crescente em comparação utilizando apenas o primeiro ajuste? Considere agora o primeiro ajuste não crescente em comparação utilizando apenas o primeiro ajuste para a=(0.2, 0.6, 0.5, 0.2, 0.8, 0.3, 0.2). 
+
+Qual foi o resultado? Além dos resultados alcançados, expresse as respostas das questões de forma analítico discursiva. 
+
+Código Completo: github.com/AlessandroFC15/Projeto-de-Alg-II/blob/master/Aula%2014-04/src/Greedy.java
+
+++
+
+-> Análise para a = (0.5, 0.7, 0.3, 0.9, 0.6, 0.8, 0.1, 0.4, 0.2, 0.5)
+	+ PRIMEIRO AJUSTE
+		. Realizando o primeiro ajuste, encontramos que o número de caixas utilizadas foram 6. A fim de descobrirmos tal valor, criamos a função getBoxesUsed, que dada um vetor, retorna o número de posições não-vazias do vetor. A função está presente abaixo:
+			
+			Imagem GetBoxesUsed
+			
+		. Encontramos também os seguintes dados:
+			Volume dentro de cada caixa:
+				0.9, 0.9, 0.9, 1.0, 0.8, 0.5, 0.0, 0.0, 0.0, 0.0
+				
+			Número da Caixa de cada valor:
+				1, 2, 1, 3, 4, 5, 1, 4, 2, 6
+				
+	+ LISTA ORDENADA
+		. Utilizando o QuickSort, os dados encontrados foram:
+			- Número de Caixas Utilizadas: 6
+			
+			- Volume dentro de cada caixa:
+				1.0 1.0 0.6 0.7 0.8 0.9 0.0 0.0 0.0 0.0
+				
+			- Número da Caixa de cada valor (bin):
+				1 1 1 1 2 2 3 4 5 6 
+
+-> Análise para a  = {0.2, 0.6, 0.5, 0.2, 0.8, 0.3, 0.2}
+	+ PRIMEIRO AJUSTE
+		. Realizando o primeiro ajuste para esta nova lista de valores, encontramos que o número de caixas utilizadas foram 3. Utilizamos novamente a função getBoxesUsed.
+			
+		. Encontramos também os seguintes dados:
+			Volume dentro de cada caixa:
+				1.0 1.0 0.8 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+				
+			Número da Caixa de cada valor:
+				1 1 2 1 3 2 2 
+				
+	+ LISTA ORDENADA
+		. Utilizando o QuickSort, encontramos que a lista ordenada é:
+			0.2 0.2 0.2 0.3 0.5 0.6 0.8
+	
+		. Usando então esta lista, os dados encontrados foram:
+			- Número de Caixas Utilizadas: 4
+			
+			- Volume dentro de cada caixa:
+				0.9 0.5 0.6 0.8 0.0 0.0 0.0 0.0 0.0 0.0 
+				
+			- Número da Caixa de cada valor (bin):
+				1 1 1 1 2 3 4 
+				
